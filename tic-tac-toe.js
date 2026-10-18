@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function (){
 	const squares = document.querySelectorAll('#board > div');
+	const status = document.getElementById('status');
 	let state = Array(9).fill(null);
 	let turn = 'X';
 		
