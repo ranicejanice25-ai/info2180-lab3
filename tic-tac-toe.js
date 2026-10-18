@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function (){
 	const defaultMessage = status.textContent;
 	let state = Array(9).fill(null);
 	let turn = 'X';
+	let gameOver = false;
 		
 	const wins = [
 		[0,1,2],[3,4,5],[6,7,8],
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function (){
 			if (state[a] && state[a] === state[b] && state[a] === state[c]){
 				status.textContent = 'Congratulations! ' + state[a] + ' is the Winner!';
 				status.classList.add('you-won');
+				gameOver = true;
 			}
 		}
 	}
@@ -22,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function (){
 	squares.forEach(function(square, i){
 		square.classList.add('square');
 		square.addEventListener('click', function (){
-			if (state[i]) return;
+			if (state[i] || gameOver) return;
 			state [i] =  turn;
 			square.textContent = turn;
 			square.classList.add(turn);
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function (){
 	document.querySelector('.btn').addEventListener('click', function (){
 		state = Array(9).fill(null);		
 		turn = 'X';
+		gameOver = false;
 		squares.forEach(function(square){
 			square.textContent ='';
 			square.className = 'square';
