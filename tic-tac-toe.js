@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function (){
 	const squares = document.querySelectorAll('#board > div');
 	const status = document.getElementById('status');
+	const defaultMessage = status.textContent;
 	let state = Array(9).fill(null);
 	let turn = 'X';
 		
@@ -30,6 +31,17 @@ document.addEventListener('DOMContentLoaded', function (){
 		
 		square.addEventListener('mouseover', function () { square.classList.add('hover'); });
 		square.addEventListener('mouseout', function () {square.classList.remove('hover'); });
+	});
+	
+	document.querySelector('.btn').addEventListener('click', function (){
+		state = Array(9).fill(null);		
+		turn = 'X';
+		squares.forEach(function(square){
+			square.textContent ='';
+			square.className = 'square';
+		});
+	status.textContent = defaultMessage;
+	status.classList.remove('you-won');
 	});
 });
 
