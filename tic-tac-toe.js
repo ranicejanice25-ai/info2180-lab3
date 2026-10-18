@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function (){
 			square.classList.add(turn);
 			turn = (turn === 'X') ? '0' : 'X';
 		}};
+		
+		square.addEventListener('mouseover', function () { square.classList.add('hover'); });
+		square.addEventListener('mouseout', function () {square.classList.remove('hover'); });
 	});
 });
 
