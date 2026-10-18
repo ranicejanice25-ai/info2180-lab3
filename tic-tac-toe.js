@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function (){
 			square.textContent = turn;
 			square.classList.add(turn);
 			checkWinner();
-			turn = (turn === 'X') ? '0' : 'X';
-		}};
+			turn = (turn === 'X') ? 'O' : 'X';
+		});
 		
 		square.addEventListener('mouseover', function () { square.classList.add('hover'); });
 		square.addEventListener('mouseout', function () {square.classList.remove('hover'); });
