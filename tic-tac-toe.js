@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function (){
 	squares.forEach(function(square, i){
 		square.classList.add('square');
 		square.addEventListener('click', function (){
+			if (state[i]) return;
 			state [i] =  turn;
 			square.textContent = turn;
 			square.classList.add(turn);
